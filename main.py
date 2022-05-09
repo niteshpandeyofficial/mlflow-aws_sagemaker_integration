@@ -37,8 +37,8 @@ def main(max_depth,n_estimators,min_samples_split):
     features,targets=get_data()
     x_train,x_test,y_train,y_test=train_test_split(features,targets,random_state=123,test_size=0.30)
 
- #   uri="http://127.0.0.1:5000"
- #   mlflow.set_tracking_uri(uri)
+    uri="http://127.0.0.1:5000"
+    mlflow.set_tracking_uri(uri)
     with mlflow.start_run():
         rf=RandomForestRegressor()
         rf.fit(x_train,y_train)
@@ -57,6 +57,12 @@ def main(max_depth,n_estimators,min_samples_split):
         mlflow.log_metric("mae",mae)
         mlflow.log_metric("r2",r2)
         mlflow.sklearn.log_model(rf,"model")
+
+        tracking_url_type_store=urlparse(mlflow.get_tracking_uri()).scheme
+        if tracking_url_type_store!= "file":
+            mlflow.sklearn.log_model(rf,"model",registered_model_name="RandomForestModel")
+        else:
+            mlflow.sklearn.log_model(rf,"model")
 
         try:
             inp=input("Push Model to S3(Y or N):")
