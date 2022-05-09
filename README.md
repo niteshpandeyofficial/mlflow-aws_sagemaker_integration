@@ -15,3 +15,24 @@ to run the programfile
 python main.py
 ```
 
+create empty artifacts folder
+```bash
+touch artifacts
+```
+
+to check the details using mlflow user interface
+```bash
+mlfow ui
+```
+
+required application to start using this project
+
+mysql workbench--to coonect with remote dbs
+having aws account
+
+steps:
+
+create s3 bucket
+create Relation dbs on aws
+
+
