@@ -33,8 +33,10 @@ having aws account
 steps:
 
 create s3 bucket
-create Relation dbs on aws
+create Relational dbs using aws dbs services
 
 create policy (action allowed in s3-read,write,list,delete)
-create role and assign previously created policy
+create role and assign created policy to role
+
+
 
