@@ -1,3 +1,3 @@
 params:
   app_name : "mlops-sagemker"
-  execution_role_arn : "arn:aws:iam::127818460161:role/mlops_sagemaker_role" 
+  execution_role_arn : "arn:aws:iam::127818460161:role/RoleforSagemaker" 
